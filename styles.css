@@ -11,19 +11,20 @@ body {
   align-items: center;
   justify-content: space-between; 
   padding: 40px;
-  background-image: url(media/header.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)), url(media/header.jpg);
   background-size: cover;
 }
 
 .logo {
-  color: rgb(255, 255, 255); 
-  font-size: 24px;
+  color: white; 
+  font-size: 32px;
   font-weight: bold;
+  border-radius: 5px;
+  padding: 5px;
 }
 
 .dropdown {
   position: relative;
-  padding-left: 20px;
   padding-top: 2.2px;
 }
 
@@ -37,8 +38,15 @@ body {
   height: 38px;
   margin: 0 10px;
   border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-width: 130px;
 }
 
+.dropbtn .fas {
+  color: white;
+}
 
 .dropdown-content {
   display: none;
@@ -50,7 +58,6 @@ body {
   border-radius: 5px;
 }
 
-
 .dropdown-content a {
   color: white;
   padding: 12px 16px;
@@ -61,12 +68,21 @@ body {
 
 .dropdown-content a:hover {
   background-color: #ff88eb;
-  color: #020025;
 }
 
 .dropdown:hover .dropdown-content {
   display: block;
 }
+
+/* Style for when the dropdown is active */
+.dropdown.show .dropdown-content {
+  display: block;
+}
+
+.dropdown.show .dropbtn {
+  background-color: #ff88eb;
+}
+
 
 .search-bar {
   display: flex;
@@ -83,12 +99,13 @@ body {
   border: none;
   margin-right: 10px; 
   border-radius: 5px;
+  height: 20px;
 }
 
 .search-bar button,
 .menu-expand button {
   background-color: transparent;
-  color: white;
+  color: #ff00d4;
   border: none;
   padding: 5px;
   cursor: pointer;
@@ -134,6 +151,14 @@ body {
   border: none;
   cursor: pointer;
   border-radius: 5px;
+}
+
+.category-selector button.selected-tab {
+  background-color: #ff00d4;
+}
+
+.category-selector button:hover {
+  background-color: #ff88eb;
 }
 
 .media-grid {
@@ -186,11 +211,12 @@ body {
   padding: 5px 10px;
   cursor: pointer;
   border-radius: 15px;
+  margin-top: 10px;
 }
 
 .create-backlog:hover {
-  background-color: #ff88eb; /* Replace #colorOnHover with the hex code of the color you want */
-  color: #020025; /* Optional: if you want to change the text color on hover too */
+  background-color: #ff88eb;
+  color: #020025;
 }
 
 .backlog-status div {

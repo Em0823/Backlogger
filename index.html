@@ -11,16 +11,19 @@
     <header class="navbar">
         <div class="logo">BackLogger</div>
         <div class="dropdown">
-            <button class="dropbtn">All Media ▼</button>
+            <button class="dropbtn">
+                All Media <i class="fa fa-caret-down"></i>
+            </button>
             <div class="dropdown-content">
-                <a href="#">Movies</a>
-                <a href="#">TV Shows</a>
-                <a href="#">Books</a>
-                <a href="#">Video Games</a>
+                <a href="#" class="dropdown-item">All Media</a>
+                <a href="#" class="dropdown-item">Movies</a>
+                <a href="#" class="dropdown-item">TV Shows</a>
+                <a href="#" class="dropdown-item">Books</a>
+                <a href="#" class="dropdown-item">Video Games</a>
             </div>
         </div>
         <div class="search-bar">
-            <input type="text" placeholder="Search your favorite movies, tv shows, books, music...">
+            <input type="text" placeholder="Search for your favorite movies, tv shows, books, music...">
             <button><i class="fas fa-search"></i></button>
         </div>
         <div class="menu-expand">
@@ -29,92 +32,74 @@
     </header>
     
     <main class="content">
-        <!-- content split into two sections: media and backlogs -->
         <section class="media">
             <div class="trending-header">
                 <h2>Trending Now</h2>
                 <div class="category-selector">
-                    <button>Movies</button>
-                    <button>TV Shows</button>
-                    <button>Books</button>
-                    <button>Video Games</button>
+                    <button id="movies-tab">Movies</button>
+                    <button id="tv-shows-tab">TV Shows</button>
+                    <button id="books-tab">Books</button>
+                    <button id="video-games-tab">Video Games</button>
                 </div>
             </div>
-            <!-- Media item card -->
+            
             <div class="media-grid">
-                <div class="media-card">
-                    <img src="media/fakeposter1.jpg" alt="Media Poster" class="media-poster">
+                <!-- Example media cards with data-category attribute -->
+                <div class="media-card" data-category="movies">
+                    <img src="media/fakeposter1.jpg" alt="Movie Poster" class="media-poster">
                     <div class="media-info">
-                        <h3 class="media-title">Media Item Name</h3>
+                        <h3 class="media-title">Movie Title</h3>
                         <p class="media-details">Year • Duration • Type</p>
                     </div>
                 </div>
-                <div class="media-card">
-                    <img src="media/fakeposter2.jpeg" alt="Media Poster" class="media-poster">
+                <div class="media-card" data-category="movies">
+                    <img src="media/fakeposter2.jpeg" alt="Movie Poster" class="media-poster">
                     <div class="media-info">
-                        <h3 class="media-title">Media Item Name</h3>
+                        <h3 class="media-title">Movie Title</h3>
                         <p class="media-details">Year • Duration • Type</p>
                     </div>
                 </div>
-                <div class="media-card">
-                    <img src="media/spider-man.jpg.crdownload" alt="Media Poster" class="media-poster">
+                <div class="media-card" data-category="movies">
+                    <img src="media/fakeposter1.jpg" alt="Movie Poster" class="media-poster">
                     <div class="media-info">
-                        <h3 class="media-title">Media Item Name</h3>
+                        <h3 class="media-title">Movie Title</h3>
                         <p class="media-details">Year • Duration • Type</p>
                     </div>
-                    </div>
-                    <div class="media-card">
-                        <img src="media/post15.jpg.crdownload" alt="Media Poster" class="media-poster">
-                        <div class="media-info">
-                            <h3 class="media-title">Media Item Name</h3>
-                            <p class="media-details">Year • Duration • Type</p>
-                        </div>
-                    </div>
-                    <div class="media-card">
-                        <img src="media/tgs.jpg" alt="Media Poster" class="media-poster">
-                        <div class="media-info">
-                            <h3 class="media-title">Media Item Name</h3>
-                            <p class="media-details">Year • Duration • Type</p>
-                        </div>
-                    </div>
-                    <div class="media-card">
-                        <img src="media/post15.jpg.crdownload" alt="Media Poster" class="media-poster">
-                        <div class="media-info">
-                            <h3 class="media-title">Media Item Name</h3>
-                            <p class="media-details">Year • Duration • Type</p>
-                        </div>
-                        </div>
-                        <div class="media-card">
-                            <img src="media/fakeposter1.jpg" alt="Media Poster" class="media-poster">
-                            <div class="media-info">
-                                <h3 class="media-title">Media Item Name</h3>
-                                <p class="media-details">Year • Duration • Type</p>
-                            </div>
-                        </div>
-                        <div class="media-card">
-                            <img src="media/fakeposter2.jpeg" alt="Media Poster" class="media-poster">
-                            <div class="media-info">
-                                <h3 class="media-title">Media Item Name</h3>
-                                <p class="media-details">Year • Duration • Type</p>
-                            </div>
-                        </div>
-                        <div class="media-card">
-                            <img src="media/fakeposter1.jpg" alt="Media Poster" class="media-poster">
-                            <div class="media-info">
-                                <h3 class="media-title">Media Item Name</h3>
-                                <p class="media-details">Year • Duration • Type</p>
-                            </div>
                 </div>
-                <!-- media cards can be added here -->
+                <div class="media-card" data-category="tv-shows">
+                    <img src="media/fakeposter2.jpeg" alt="Movie Poster" class="media-poster">
+                    <div class="media-info">
+                        <h3 class="media-title">Movie Title</h3>
+                        <p class="media-details">Year • Duration • Type</p>
+                    </div>
+                </div>
+                <div class="media-card" data-category="books">
+                    <img src="media/fakeposter1.jpg" alt="Movie Poster" class="media-poster">
+                    <div class="media-info">
+                        <h3 class="media-title">Movie Title</h3>
+                        <p class="media-details">Year • Duration • Type</p>
+                    </div>
+                </div>
+                <div class="media-card" data-category="video-games">
+                    <img src="media/fakeposter2.jpeg" alt="Movie Poster" class="media-poster">
+                    <div class="media-info">
+                        <h3 class="media-title">Movie Title</h3>
+                        <p class="media-details">Year • Duration • Type</p>
+                    </div>
+                </div>
+                <!-- Repeat blocks for each category and media item -->
             </div>
         </section>
         
         <aside class="backlogs">
             <h2>Your Backlogs</h2>
-            <button class="create-backlog">+ Create Backlog</button>
+            <form id="create-backlog-form">
+                <input type="text" id="backlog-name" placeholder="Enter backlog name" required>
+                <button class="create-backlog" type="submit">+ Create Backlog</button>
+            </form>
             <div class="backlog-status">
-                <div>In Progress...</div>
-                <div>Completed</div>
+                <div class="backlog-list">In Progress...</div>
+                <div class="backlog-list">Completed</div>
             </div>
         </aside>
     </main>
@@ -122,5 +107,7 @@
     <footer>
         <!-- Footer content -->
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
