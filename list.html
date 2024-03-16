@@ -25,7 +25,12 @@
             <button><i class="fas fa-search"></i></button>
         </div>
         <div class="menu-expand">
-            <button><i class="fas fa-bars onclick="showMenu()"></i></button>
+            <button onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="menu-options" id="menuOptions" style="display: none;">
+            <a href="#">Sign In</a>
+            <a href="#">Sign Up</a>
+            <a href="#">Backlog List</a>
         </div>
     </section>
     
@@ -97,7 +102,7 @@
         
       
     
-    
+    </body>
     <footer>
         <!-- Footer content -->
     </footer>
@@ -125,8 +130,12 @@
             });
           }
         });
-
-      </script>
+        function toggleMenu() {
+            console.log('Menu clicked');
+            var menuOptions = document.getElementById('menuOptions');
+            menuOptions.style.display = (menuOptions.style.display === 'block') ? 'none' : 'block';
+        }
+    </script>
       
-</body>
+
 </html>

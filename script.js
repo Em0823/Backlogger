@@ -122,4 +122,9 @@ window.addEventListener('click', function(event) {
     }
 });
 
-//---------------------------------------------
+//---------------------toggle Menu--------------
+
+function toggleMenu() {
+    var menuOptions = document.querySelector('.menu-options');
+    menuOptions.style.display = (menuOptions.style.display === 'block') ? 'none' : 'block';
+}
