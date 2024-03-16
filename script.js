@@ -122,9 +122,52 @@ window.addEventListener('click', function(event) {
     }
 });
 
-//---------------------toggle Menu--------------
+//---------------------backlog list filter by--------------
+
+document.addEventListener("DOMContentLoaded", function() {
+    const filterIcons = document.querySelectorAll('.nav-links i');
+
+    filterIcons.forEach(icon => {
+      icon.addEventListener('click', function() {
+        const type = this.getAttribute('data-type');
+        filterList(type);
+      });
+    });
+
+    function filterList(type) {
+      const allCards = document.querySelectorAll('.media-card');
+      
+      allCards.forEach(card => {
+        card.style.display = 'none'; // Hide all cards first
+      });
+      
+      const filteredCards = document.querySelectorAll(`.media-card[data-type="${type}"]`);
+      filteredCards.forEach(card => {
+        card.style.display = 'block'; // Show cards with the selected data-type
+      });
+    }
+  });
+
+
+  //*-----------Menu expand toggle-------------
+  document.addEventListener("DOMContentLoaded", function() {
+const menuExpandButton = document.querySelector('.menu-expand button');
+const menuOptions = document.querySelector('.menu-options');
+
+// Toggle menu options display when menu button is clicked
+menuExpandButton.addEventListener('click', function(event) {
+event.stopPropagation(); // Prevent the click event from propagating to the document
+toggleMenu();
+});
+
+// Hide menu options when clicking outside the menu
+document.addEventListener('click', function(event) {
+if (!menuOptions.contains(event.target) && event.target !== menuExpandButton) {
+  menuOptions.style.display = 'none';
+}
+});
 
 function toggleMenu() {
-    var menuOptions = document.querySelector('.menu-options');
-    menuOptions.style.display = (menuOptions.style.display === 'block') ? 'none' : 'block';
+menuOptions.style.display = (menuOptions.style.display === 'block') ? 'none' : 'block';
 }
+});
