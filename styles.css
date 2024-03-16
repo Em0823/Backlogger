@@ -288,17 +288,19 @@ body {
 .menu-options {
   display: none;
   position: absolute;
-  top: 100%; /* Position below the bars icon */
+  top: 8.5%; /* Position below the bars icon */
   left: 0;
-  background-color: white;
+  margin-left:88%;
+  background-color: #ff00d4;;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
   padding: 10px;
   z-index: 100; /* Ensure the menu is above other content */
+  border-radius: 10px;
 }
 .menu-options a {
   display: block; /* Make menu options block elements */
   padding: 8px 16px; /* Add padding to menu options */
-  color: black; /* Set color */
+  color: white; /* Set color */
   text-decoration: none; /* Remove default underline */
 }
 
