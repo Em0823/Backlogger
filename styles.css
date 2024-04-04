@@ -115,18 +115,22 @@ body {
   font-size: 16px;
 }
 
-/* menu options*/
+/* enu Styling */
+
+/* Positioning relative to the .menu-expand container */
+.menu-expand {
+  position: relative;
+}
 
 .menu-options {
-  display: none;
-  position: absolute;
-  top: 8.5%; /* Position below the menu expand icon */
-  left: 0;
-  margin-left:88%;
-  background-color: #ff00d4;;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add a shadow */
+  display: none; /* Hidden by default */
+  position: absolute; /* Positioned relative to the nearest positioned ancestor (in this case, .menu-expand) */
+  top: 6.6%; /* Directly below the toggle button and also below search bar */
+  right: 0; /* Align with the right side of .menu-expand */
+  background-color: #ff00d4;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   padding: 10px;
-  z-index: 100; /* Ensure the menu is above other content */
+  z-index: 100;
   border-radius: 10px;
 }
 
@@ -141,6 +145,8 @@ body {
   background-color: #ff88eb; 
   border-radius: 10px;
 }
+
+/* Page Body */
 
 .content {
   display: flex;
@@ -178,6 +184,8 @@ body {
   color: #ff00d4;
 }
 
+/* Media Cards */
+
 .media-card {
   background-color: #444;
   padding: 10px;
@@ -207,6 +215,8 @@ body {
   margin: 0;
   font-size: 12px;
 }
+
+/* BackLog List/Form */
 
 .backlogs {
   flex-grow: 1; 
@@ -264,7 +274,8 @@ body {
 }
 
 }
-/*-------------------------------------*/
+
+/* Filter By Links */
 
 .nav-links{
   color:#ff00d4;
@@ -297,7 +308,8 @@ body {
   cursor: pointer;
 }
 
-/* The Modal (background) */
+/* The Modal */
+
 .modal {
   display: none; /* Hidden by default */
   position: fixed;

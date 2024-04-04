@@ -160,39 +160,31 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 });
 
+//Menu Expand Toggle
 
-  //*-----------Menu expand toggle-------------
+document.addEventListener("DOMContentLoaded", function() {
+  const menuExpandButton = document.querySelector('.menu-expand button');
+  const menuOptions = document.querySelector('.menu-options');
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const menuExpandButton = document.querySelector('.menu-expand button');
-    const menuOptions = document.querySelector('.menu-options');
-  
-    // This function toggles the display of the menu
-    // It's triggered when the menu button is clicked
-    function toggleMenu() {
-      const isMenuVisible = menuOptions.style.display === 'block';
-      menuOptions.style.display = isMenuVisible ? 'none' : 'block';
-    }
-  
-    // Attach the click event listener to the menu button
-    menuExpandButton.addEventListener('click', function(event) {
-      event.stopPropagation(); // Prevent the click event from propagating to the document
-      toggleMenu();
-    });
-  
-    // Hide the menu when clicking outside of the menu
-    document.addEventListener('click', function(event) {
-      if (!menuOptions.contains(event.target) && event.target !== menuExpandButton) {
-        menuOptions.style.display = 'none';
-      }
-    });
-  
-    // Hide menu options when the mouse leaves the menu area
-    // We listen for the mouseleave event on the menuOptions element itself
-    menuOptions.addEventListener('mouseleave', function() {
-      menuOptions.style.display = 'none';
-    });
+  // Function to toggle the visibility of the menu
+  function toggleMenu() {
+    const isMenuVisible = window.getComputedStyle(menuOptions).display === 'block';
+    menuOptions.style.display = isMenuVisible ? 'none' : 'block';
+  }
+
+  // Event listener for the menu button
+  menuExpandButton.addEventListener('click', function(event) {
+    event.stopPropagation();
+    toggleMenu();
   });
+
+  // Hide the menu when clicking outside of it
+  document.addEventListener('click', function(event) {
+    if (!menuOptions.contains(event.target) && event.target !== menuExpandButton) {
+      menuOptions.style.display = 'none';
+    }
+  });
+});
 
 //Media Card Modal
 
