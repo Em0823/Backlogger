@@ -78,7 +78,6 @@ body {
 .dropdown.show .dropdown-content {
   display: block;
 }
-
 .dropdown.show .dropbtn {
   background-color: #ff88eb;
 }
@@ -121,7 +120,7 @@ body {
 .menu-options {
   display: none;
   position: absolute;
-  top: 8.5%; /* Position below the bars icon */
+  top: 8.5%; /* Position below the menu expand icon */
   left: 0;
   margin-left:88%;
   background-color: #ff00d4;;
@@ -132,10 +131,10 @@ body {
 }
 
 .menu-options a {
-  display: block; /* Make menu options block elements */
-  padding: 8px 16px; /* Add padding to menu options */
-  color: white; /* Set color */
-  text-decoration: none; /* Remove default underline */
+  display: block;
+  padding: 8px 16px;
+  color: white;
+  text-decoration: none;
 }
 
 .menu-options a:hover {
@@ -176,7 +175,7 @@ body {
 }
 
 .filter-by {
-  color: #ff00d4; /* Replace with whatever color you want */
+  color: #ff00d4;
 }
 
 .media-card {
@@ -264,11 +263,6 @@ body {
     flex-direction: column;
 }
 
-.category-selector {
-    margin-top: 20px;
-}
-
-
 }
 /*-------------------------------------*/
 
@@ -306,24 +300,24 @@ body {
 /* The Modal (background) */
 .modal {
   display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  position: fixed;
+  z-index: 1;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
   background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
 }
 
 /* Modal Content */
 .modal-content {
   background-color: #1b1a3b;
-  margin: 15% auto; /* 15% from the top and centered */
+  margin: 15% auto;
   padding: 20px;
   border: 1px solid white;
-  width: 80%; /* Could be more or less, depending on screen size */
+  width: 80%;
   border-radius: 10px;
 }
 
@@ -332,7 +326,7 @@ body {
   height: auto; /* Maintains the aspect ratio */
   aspect-ratio: 2 / 3; /* Sets a portrait aspect ratio */
   object-fit: cover; /* Ensures the image covers the area */
-  max-height: 60vh; /* Adjust based on modal's size */
+  max-height: 60vh; /* Adjustable */
 }
 
 
@@ -345,12 +339,12 @@ body {
   font-weight: bold;
   background: transparent;
   border: none;
-  margin-right: 20px; /* space from the right side */
+  margin-right: 20px;
   padding: 0;
 }
 
 .add-btn:hover {
-  color: #ff88eb; /* same hover effect as the close button */
+  color: #ff88eb;
   cursor: pointer;
 }
 
@@ -368,4 +362,20 @@ body {
   color: #ff88eb;
   text-decoration: none;
   cursor: pointer;
+}
+
+
+/* Style for <a> tags wrapping .backlog-list */
+a .backlog-list { 
+  color: white;
+  text-decoration: none;
+}
+
+/* Hover effect for <a> tags wrapping .backlog-list */
+a:hover .backlog-list { 
+  color: #ff88eb;
+}
+
+a {
+  text-decoration: none;
 }

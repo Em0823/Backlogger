@@ -1,47 +1,86 @@
-// Function to hide all media cards
-function hideMediaCards() {
-    const mediaCards = document.querySelectorAll('.media-card');
-    mediaCards.forEach(card => {
-        card.style.display = 'none';
-    });
-}
+//function handling addition of backlog list divs/links to list page
 
-// Function to show media cards based on category
-function showMediaCardsByCategory(category) {
-    hideMediaCards();
-    const mediaCardsToShow = document.querySelectorAll(`.media-card[data-category="${category}"]`);
-    mediaCardsToShow.forEach(card => {
-        card.style.display = 'block'; // Use 'flex' or 'grid' if those are your display styles
-    });
-}
+document.addEventListener('DOMContentLoaded', function() {
+  const form = document.getElementById('create-backlog-form');
+  if (form) {
+      form.addEventListener('submit', handleFormSubmission);
+  }
 
-// Event listeners for category buttons
-document.querySelectorAll('.category-selector button').forEach(button => {
-    button.addEventListener('click', function() {
-        const category = this.textContent.trim().toLowerCase().replace(/\s+/g, '-');
-        showMediaCardsByCategory(category);
-    });
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage === 'list.html' || currentPage === '') {
+      loadBacklogs();
+  } else if (currentPage === 'index.html' || currentPage === '') {
+      loadLinkedBacklogs();
+  }
 });
 
-// Function to add a new backlog
+function handleFormSubmission(event) {
+  event.preventDefault();
+  const backlogName = document.getElementById('backlog-name').value.trim();
+  if (backlogName) {
+      addBacklog(backlogName);
+      document.getElementById('backlog-name').value = ''; // Clear input field
+      alert('Backlog created successfully!');
+  } else {
+      alert('Please enter a name for the backlog.');
+  }
+}
+
 function addBacklog(name) {
-    const backlogContainer = document.querySelector('.backlog-status');
-    const backlogDiv = document.createElement('div');
-    backlogDiv.classList.add('backlog-list');
-    backlogDiv.textContent = name;
-    backlogContainer.appendChild(backlogDiv);
+  let backlogs = JSON.parse(localStorage.getItem('backlogs')) || [];
+  if (!backlogs.includes(name)) {
+      backlogs.push(name);
+      localStorage.setItem('backlogs', JSON.stringify(backlogs));
+  }
+
+  // Refresh the appropriate list based on the current page
+  const currentPage = window.location.pathname.split('/').pop();
+  if (currentPage === 'list.html' || currentPage === '') {
+      loadBacklogs(); // Immediate refresh for list.html
+  } else if (currentPage === 'index.html' || currentPage === '') {
+      loadLinkedBacklogs(); // Refresh the linked backlogs display for index.html
+  }
 }
 
-// Event listener for backlog form submission
-document.querySelector('#create-backlog-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent the form from submitting
-    const backlogName = document.querySelector('#backlog-name').value.trim();
-    if (backlogName) {
-        addBacklog(backlogName);
-        document.querySelector('#backlog-name').value = ''; // Clear the input after adding the backlog
-    }
-});
+function loadBacklogs() {
+  const backlogs = JSON.parse(localStorage.getItem('backlogs')) || [];
+  const backlogStatusDiv = document.querySelector('.backlog-status');
 
+  // Clear only dynamically added backlogs before re-adding them
+  document.querySelectorAll('div[data-backlog-name]').forEach(div => div.remove());
+
+  backlogs.forEach(name => {
+      if (!document.querySelector(`div[data-backlog-name="${name}"]`)) {
+          const backlogDiv = document.createElement('div');
+          backlogDiv.setAttribute('data-backlog-name', name); // Marking for differentiation
+          backlogDiv.classList.add('backlog-list');
+          backlogDiv.textContent = name;
+          backlogStatusDiv.appendChild(backlogDiv);
+      }
+  });
+}
+
+function loadLinkedBacklogs() {
+  const backlogs = JSON.parse(localStorage.getItem('backlogs')) || [];
+  const backlogStatusDiv = document.querySelector('.backlog-status');
+
+  // Clear only dynamically added backlogs before re-adding them
+  document.querySelectorAll('a[data-dynamic-backlog]').forEach(link => link.remove());
+
+  backlogs.forEach(name => {
+      const link = document.createElement('a');
+      link.setAttribute('data-dynamic-backlog', 'true'); // Marking for differentiation
+      link.href = `list.html#${name.replace(/\s+/g, '-').toLowerCase()}`;
+      const div = document.createElement('div');
+      div.className = 'backlog-list';
+      div.textContent = name;
+      link.appendChild(div);
+      backlogStatusDiv.appendChild(link);
+  });
+}
+
+
+//Navbar Dropdown
 
 // Function to update dropdown text
 function updateDropdownText(text) {
@@ -155,8 +194,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
 
+//Media Card Modal
 
-  // Get the modal
+// Get the modal
 var modal = document.getElementById("myModal");
 
 // Get the button that opens the modal
@@ -201,7 +241,7 @@ btns.forEach(function(btn){
 
 // When the user clicks on <span> (x), close the modal
 span.onclick = function() {
-    modal.style.display = "none";
+  modal.style.display = "none";
 }
 
 // When the user clicks anywhere outside of the modal, close it
@@ -210,3 +250,13 @@ span.onclick = function() {
 //        modal.style.display = "none";
 //    }
 //}
+
+//Testing Elements
+
+document.getElementById('clearLocalStorage').addEventListener('click', function() {
+  localStorage.clear(); // Clear all local storage data
+  alert('All backlogs have been cleared.');
+
+  // Optionally, refresh the page to reflect the changes or manually update the UI
+  window.location.reload();
+});

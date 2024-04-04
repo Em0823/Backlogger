@@ -38,7 +38,6 @@
     </section>
     
     <section class="content">
-        <!-- content split into two sections: media and backlogs -->
         <section class="media">
             <div class="trending-header">
                 <h2>My BackLog</h2>
@@ -92,19 +91,20 @@
             <aside class="backlogs">
                 <h2>Custom List</h2>
                 <form id="create-backlog-form">
-                    <input type="text" id="backlog-name" placeholder="Enter backlog name" required>
+                    <input type="text" id="backlog-name" placeholder="Enter backlog name">
                     <button class="create-backlog" type="submit">+ Create Backlog</button>
                 </form>
                 <div class="backlog-status">
-                    <div class="backlog-list">In Progress...</div>
-                    <div class="backlog-list">Completed</div>
+                    <div class="backlog-list" id="in-progress">In Progress...</div>
+                    <div class="backlog-list" id="completed">Completed</div>
                 </div>
             </aside>
 
         </section>
 
         <footer>
-            <!-- Footer content -->
+            <!-- Clear Local Storage - Testing Purposes/Can Be Edited Out -->
+            <!--<button id="clearLocalStorage">Clear Local Storage</button>-->
         </footer>
     
 <!-- The Modal -->
