@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - BackLogger</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Additional CSS for sign-up page */
+        .signup-form {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #222;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+
+        .signup-form h2 {
+            color: #ff00d4;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: calc(100% - 22px);
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #444;
+            color: #fff;
+        }
+
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            outline: none;
+            box-shadow: 0 0 5px #ff00d4;
+        }
+
+        button[type="submit"] {
+            background-color: #ff00d4;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            width: 100%;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #ff88eb;
+        }
+
+        .login-link {
+            color: #ff00d4;
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">BackLogger</div>
+        <div class="dropdown">
+            <button class="dropbtn">
+                All Media <i class="fa fa-caret-down"></i>
+            </button>
+            <div class="dropdown-content">
+                <a href="#" class="dropdown-item">All Media</a>
+                <a href="#" class="dropdown-item">Movies</a>
+                <a href="#" class="dropdown-item">TV Shows</a>
+                <a href="#" class="dropdown-item">Books</a>
+                <a href="#" class="dropdown-item">Video Games</a>
+            </div>
+        </div>
+        <div class="search-bar">
+            <input type="text" placeholder="Search for your favorite movies, tv shows, books, music...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+        <div class="menu-expand">
+            <button onclick="toggleMenu()"><i class="fas fa-bars"></i></button>
+        </div>
+        <div class="menu-options" id="menuOptions" style="display: none;">
+            <a href="signin.html">Sign In</a>
+            <a href="signup.html">Sign Up</a>
+            <a href="list.html">Backlog List</a>
+        </div>
+    </header>
+    
+    <main class="content">
+        <section class="signup-form">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" name="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+                <!-- Add more fields for sign-up as needed -->
+                <button type="submit">Sign Up</button>
+            </form>
+            <p class="login-link">Already have an account? <a href="signin.html">Sign In</a></p>
+        </section>
+    </main>
+    
+    <footer>
+        <!-- Footer content -->
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
