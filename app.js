@@ -31,8 +31,8 @@ app.use(express.static('public'));
 
 // Templating Engine
 app.use(expressLayout);
-app.set('layout', './layout/main');
-app.set('view engine', 'ejs');
+//app.set('layout', './layout/main');
+//app.set('view engine', 'ejs');
 
 app.use('/', require('./server/routes/main'));
 app.use('/', require('./server/routes/admin'));
