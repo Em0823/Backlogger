@@ -1,7 +1,6 @@
 require('dotenv').config();
 
 const express = require('express');
-const expressLayout = require('express-ejs-layouts');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const MongoStore = require('connect-mongo');
@@ -30,9 +29,6 @@ app.use(session({
 app.use(express.static('public'));
 
 // Templating Engine
-app.use(expressLayout);
-//app.set('layout', './layout/main');
-//app.set('view engine', 'ejs');
 
 app.use('/', require('./server/routes/main'));
 app.use('/', require('./server/routes/admin'));
