@@ -10,17 +10,14 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between; 
-  padding: 40px;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)), url(media/header.jpg);
+  padding: 10px;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.7),rgba(0, 0, 0, 0.5)), url(../img/header.jpg);
   background-size: cover;
 }
 
-.logo {
-  color: white; 
-  font-size: 32px;
-  font-weight: bold;
-  border-radius: 5px;
-  padding: 5px;
+.logo img {
+  max-height: 130px;
+  width: auto;
 }
 
 .dropdown {
@@ -125,7 +122,7 @@ body {
 .menu-options {
   display: none; /* Hidden by default */
   position: absolute; /* Positioned relative to the nearest positioned ancestor (in this case, .menu-expand) */
-  top: 6.6%; /* Directly below the toggle button and also below search bar */
+  top: 7.6%; /* Directly below the toggle button and also below search bar */
   right: 0; /* Align with the right side of .menu-expand */
   background-color: #ff00d4;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
